@@ -22,6 +22,11 @@
   <a href ="/companies/<%=@company["id"]%>/edit">Edit Company Info</a>
 </p>
 
+<form action ="/companies/<%=@company["id"]%>" method ="post" >
+  <input type ="hidden" name ="_method" value ="delete">
+  <button> Delete company </button>
+</form>
+
 <p>
   <a href="/companies">Back to All Companies</a>
 </p>

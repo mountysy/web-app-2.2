@@ -51,10 +51,13 @@ class CompaniesController < ApplicationController
     # redirect user
   end
 
-  # def destroy
-  #   # find a Company
-  #   # destroy Company row
-  #   # redirect user
-  # end
+  def destroy
+    # find a Company
+    @company = Company.find_by({"id" => params["id"]})
+    @company.destroy
+    redirect_to "/companies"
+    # destroy Company row
+    # redirect user
+  end
 
 end
