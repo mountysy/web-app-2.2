@@ -30,17 +30,26 @@ class CompaniesController < ApplicationController
     # redirect user
   end
 
-  # def edit
-  #   # find a Company
-  #   # render view with edit Company form
-  # end
+  def edit
+    # find a Company
+    @company = Company.find_by({"id" => params["id"]})
+    # render view with edit Company form
+  end
 
-  # def update
-  #   # find a Company
-  #   # assign user-entered form data to Company's columns
-  #   # save Company row
-  #   # redirect user
-  # end
+  def update
+    # find a Company
+    @company = Company.find_by({"id" => params["id"]})
+
+    # assign user-entered form data to Company's columns
+    @company["name"] = params["name"]
+    @company["city"] = params["city"]
+    @company["state"] = params["state"]
+    @company.save
+    redirect_to "/companies/#{@company["id"]}"
+    
+    # save Company row
+    # redirect user
+  end
 
   # def destroy
   #   # find a Company

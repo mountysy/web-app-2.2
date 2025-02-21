@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
 
   def show
-    # @contact = Contact.find_by({"id" => params["id"]})
-    # @company = Company.find_by({"id" => @contact["company_id"]})
+    @contact = Contact.find_by({"id" => params["id"]})
+    @company = Company.find_by({"id" => @contact["company_id"]})
     # render contacts/show view with details about Contact
   end
 
